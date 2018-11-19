@@ -1,14 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://graphics/shooter/star1.png" type="Texture" id=1]
+[ext_resource path="res://code/shooter/stars.gd" type="Script" id=1]
 
 [node name="stars" type="Node"]
 
-[node name="far" type="Node" parent="." index="0"]
-
-[node name="star_far_0" type="Sprite" parent="far" index="0"]
-
-position = Vector2( 242, -44 )
-texture = ExtResource( 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 

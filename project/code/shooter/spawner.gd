@@ -1,6 +1,9 @@
 extends Node
 
-const enemy_basic = preload("res://scenes/shooter/enemy_basic.tscn")
+const enemies = [
+	preload("res://scenes/shooter/enemy_basic.tscn"),
+	preload("res://scenes/shooter/enemy_shooter.tscn")
+]
 
 func _ready():
 	spawn()
@@ -12,7 +15,7 @@ func _process(delta):
 func spawn():
 	while true:
 		randomize()
-		var enemy = enemy_basic.instance()
+		var enemy = enemies[randi() % enemies.size()].instance()
 		var pos = Vector2()
 		var enemy_size = enemy.get_node("Collision").shape.extents
 		var timer = Timer.new()

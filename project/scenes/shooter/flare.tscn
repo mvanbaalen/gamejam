@@ -25,7 +25,6 @@ tracks/0/keys = {
 [node name="Flare" type="Sprite"]
 
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 86.3951, 63.0935 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]

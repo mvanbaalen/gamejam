@@ -16,6 +16,5 @@ func _process(delta):
 func create_flare():
 	var flare = flare_scene.instance()
 	flare.position = position
-	#flare.position.y -= flare.
 	get_parent().add_child(flare)
 	pass

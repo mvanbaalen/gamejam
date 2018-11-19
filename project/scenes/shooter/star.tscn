@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/shooter/star1.png" type="Texture" id=1]
+[ext_resource path="res://code/shooter/star.gd" type="Script" id=2]
+
+[node name="Star" type="Sprite"]
+
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+speed = 100
+
+

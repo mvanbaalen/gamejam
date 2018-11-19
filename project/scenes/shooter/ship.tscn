@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://code/shooter/ship.gd" type="Script" id=1]
 [ext_resource path="res://graphics/shooter/ship.png" type="Texture" id=2]
+[ext_resource path="res://sound/sfx_laser1.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -19,6 +20,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -37,5 +39,18 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( 0, -38 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Sounds" type="Node" parent="." index="3"]
+
+[node name="Laser" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 
