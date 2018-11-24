@@ -2,7 +2,7 @@
 
 [ext_resource path="res://code/shooter/ship.gd" type="Script" id=1]
 [ext_resource path="res://graphics/shooter/ship.png" type="Texture" id=2]
-[ext_resource path="res://sound/sfx_laser1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sound/shooter/laser_hi1.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,7 +20,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pickable", "Transform" ]
+_sections_unfolded = [ "Pickable", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -28,7 +28,7 @@ __meta__ = {
 [node name="sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="collision" type="CollisionShape2D" parent="." index="1"]
 

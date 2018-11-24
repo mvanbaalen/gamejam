@@ -5,9 +5,10 @@
 
 [node name="Star" type="Sprite"]
 
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 speed = 100
 
 

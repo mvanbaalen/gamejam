@@ -32,6 +32,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 [node name="ship" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 173.281, 645.43 )
+z_index = 1
 
 [node name="spawner_powerup" parent="." index="3" instance=ExtResource( 3 )]
 

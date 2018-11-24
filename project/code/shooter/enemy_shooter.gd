@@ -12,6 +12,7 @@ func _ready():
 	self.add_child(timer)
 	timer.start()
 	yield(timer, "timeout")
+	timer.queue_free()
 	shoot()
 	pass
 
@@ -27,6 +28,7 @@ func shoot():
 		var laser = laser_scene.instance()
 		laser.position = $Cannon.get_global_transform().get_origin()
 		get_parent().add_child(laser)
+		$Sound/Laser.play()
 		
 		var timer = Timer.new()
 		timer.set_wait_time(1.5)
@@ -34,5 +36,6 @@ func shoot():
 		self.add_child(timer)
 		timer.start()
 		yield(timer, "timeout")
+		timer.queue_free()
 
 	pass

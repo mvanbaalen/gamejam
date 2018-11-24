@@ -2,7 +2,8 @@ extends Node
 
 const enemies = [
 	preload("res://scenes/shooter/enemy_basic.tscn"),
-	preload("res://scenes/shooter/enemy_shooter.tscn")
+	preload("res://scenes/shooter/enemy_shooter.tscn"),
+	preload("res://scenes/shooter/meteor.tscn")
 ]
 
 func _ready():
@@ -28,4 +29,5 @@ func spawn():
 		enemy.position = pos
 		$container.add_child(enemy)
 		yield(timer, "timeout")
+		timer.queue_free()
 	pass

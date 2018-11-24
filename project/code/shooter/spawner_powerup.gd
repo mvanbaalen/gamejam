@@ -12,6 +12,7 @@ func _ready():
 	self.add_child(timer)
 	timer.start()
 	yield(timer, "timeout")
+	timer.queue_free()
 	spawn()
 	pass
 
@@ -34,4 +35,5 @@ func spawn():
 		powerup.position = pos
 		$container.add_child(powerup)
 		yield(timer, "timeout")
+		timer.queue_free()
 	pass

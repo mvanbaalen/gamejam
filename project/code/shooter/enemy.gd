@@ -10,7 +10,9 @@ func _ready():
 
 func _process(delta):
 	translate(velocity * delta)
-	if position.y-$Collision.shape.extents.y >= get_viewport().size.y:
+	if (position.y-$Collision.shape.extents.y >= get_viewport().size.y):
+	#or position.x-$Collision.shape.extents.x >= get_viewport().size.x
+	#or position.x+$Collision.shape.extents.x <= get_viewport().size.x):
 		queue_free()
 		
 func set_armor(new_value):

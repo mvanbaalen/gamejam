@@ -2,8 +2,8 @@ extends Area2D
 
 const laser_scene = preload("res://scenes/shooter/player_laser.tscn")
 const ship_speed = 250
-const shot_cooldown = 0.4
-const fast_cooldown = 0.2
+const shot_cooldown = 0.45
+const fast_cooldown = 0.25
 
 var current_cooldown
 var armor = 4 setget set_armor

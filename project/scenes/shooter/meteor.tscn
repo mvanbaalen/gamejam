@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/shooter/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://code/shooter/meteor.gd" type="Script" id=2]
+[ext_resource path="res://graphics/shooter/meteor_big.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 38, 38 )
+
+[node name="Meteor" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+armor = 3
+rotation_velocity = 10
+
+[node name="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Collision" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+
