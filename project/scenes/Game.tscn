@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/shooter/shooter_game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/racer/racer_game.tscn" type="PackedScene" id=2]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Viewports" type="HBoxContainer" parent="." index="0"]
 

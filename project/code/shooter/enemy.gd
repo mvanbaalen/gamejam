@@ -1,8 +1,11 @@
 extends Area2D
 
+export var base_point_value = 5
 export var velocity = Vector2()
 export var armor = 2 setget set_armor
 const explosion_scene = preload("res://scenes/shooter/explosion.tscn")
+
+onready var game_state = get_parent().get_parent().get_parent()
 
 func _ready():
 	add_to_group("enemy")
@@ -19,6 +22,7 @@ func _process(delta):
 func set_armor(new_value):
 	armor = new_value
 	if armor <= 0:
+		game_state.add_score(base_point_value)
 		explode()
 		queue_free()
 	pass

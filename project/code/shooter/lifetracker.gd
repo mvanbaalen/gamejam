@@ -5,7 +5,7 @@ extends GridContainer
 # var b = "textvar"
 
 func _ready():
-	var ship = get_parent().get_parent().get_node("ship")
+	var ship = get_parent().get_parent().get_parent().get_node("ship")
 	ship.connect("armor_changed", self, "_on_armor_changed")
 	pass
 
