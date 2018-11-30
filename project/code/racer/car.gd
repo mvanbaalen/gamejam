@@ -12,9 +12,6 @@ signal speed_changed
 func _ready():
 	set_process_input(true)
 	add_to_group("player")
-	print("Viewport Size x " + str(get_viewport().size.x))
-	print("Viewport Rect Position x " + str(get_viewport().get_visible_rect().position.x))
-	print("Viewport Rect Size x " + str(get_viewport().get_visible_rect().size.x))
 
 func _process(delta):
 	#Check Input

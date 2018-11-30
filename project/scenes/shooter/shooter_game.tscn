@@ -101,7 +101,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Resource", "Scale", "Trail" ]
 
-[node name="shooter_game" type="Node2D" index="0"]
+[node name="shooter_game" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -125,7 +125,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "M
 
 [node name="stars" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="ship" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Ship" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 173.281, 645.43 )
 z_index = 1

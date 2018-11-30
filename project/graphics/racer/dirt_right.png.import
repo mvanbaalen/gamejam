@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_tiles.png-3a661fa89e1d1d409374f397de28356f.stex"
+path="res://.import/dirt_right.png-393b3047860f18aaf632e232b611710b.stex"
 
 [deps]
 
-source_file="res://graphics/racer/spritesheet_tiles.png"
-dest_files=[ "res://.import/spritesheet_tiles.png-3a661fa89e1d1d409374f397de28356f.stex" ]
+source_file="res://graphics/racer/dirt_right.png"
+dest_files=[ "res://.import/dirt_right.png-393b3047860f18aaf632e232b611710b.stex" ]
 
 [params]
 

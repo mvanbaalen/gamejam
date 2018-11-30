@@ -34,10 +34,30 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Map" type="Node" parent="." index="1"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="Road1" type="TileMap" parent="Map" index="0"]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 2, 5, 0, 4, 4, 0, 6, 0, 0, 8, 1, 0, 10, 1, 0, 12, 2, 0, 14, 3, 0, 16, 5, 0, 18, 5, 0, 131072, 5, 0, 131074, 5, 0, 131076, 4, 0, 131078, 0, 0, 131080, 1, 0, 131082, 1, 0, 131084, 2, 0, 131086, 3, 0, 131088, 5, 0, 131090, 5, 0, 262144, 5, 0, 262146, 5, 0, 262148, 4, 0, 262150, 0, 0, 262152, 1, 0, 262154, 1, 0, 262156, 2, 0, 262158, 3, 0, 262160, 5, 0, 262162, 5, 0, 393216, 5, 0, 393218, 5, 0, 393220, 4, 0, 393222, 0, 0, 393224, 1, 0, 393226, 1, 0, 393228, 2, 0, 393230, 3, 0, 393232, 5, 0, 393234, 5, 0, 524288, 5, 0, 524290, 5, 0, 524292, 4, 0, 524294, 0, 0, 524296, 1, 0, 524298, 1, 0, 524300, 2, 0, 524302, 3, 0, 524304, 5, 0, 524306, 5, 0, 655360, 5, 0, 655362, 5, 0, 655364, 4, 0, 655366, 0, 0, 655368, 1, 0, 655370, 1, 0, 655372, 2, 0, 655374, 3, 0, 655376, 5, 0, 655378, 5, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Road2" type="TileMap" parent="Map" index="1"]
 
 position = Vector2( 0, -768 )
 mode = 0
@@ -56,28 +76,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 6, 0, 0, 8, 1, 0, 10, 1, 0, 12, 2, 0, 131078, 0, 0, 131080, 1, 0, 131082, 1, 0, 131084, 2, 0, 262150, 0, 0, 262152, 1, 0, 262154, 1, 0, 262156, 2, 0, 393222, 0, 0, 393224, 1, 0, 393226, 1, 0, 393228, 2, 0, 524294, 0, 0, 524296, 1, 0, 524298, 1, 0, 524300, 2, 0, 655366, 0, 0, 655368, 1, 0, 655370, 1, 0, 655372, 2, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Road2" type="TileMap" parent="Map" index="1"]
-
-mode = 0
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 6, 0, 0, 8, 1, 0, 10, 1, 0, 12, 2, 0, 131078, 0, 0, 131080, 1, 0, 131082, 1, 0, 131084, 2, 0, 262150, 0, 0, 262152, 1, 0, 262154, 1, 0, 262156, 2, 0, 393222, 0, 0, 393224, 1, 0, 393226, 1, 0, 393228, 2, 0, 524294, 0, 0, 524296, 1, 0, 524298, 1, 0, 524300, 2, 0, 655366, 0, 0, 655368, 1, 0, 655370, 1, 0, 655372, 2, 0 )
+tile_data = PoolIntArray( 0, 5, 0, 2, 5, 0, 4, 4, 0, 6, 0, 0, 8, 1, 0, 10, 1, 0, 12, 2, 0, 14, 3, 0, 16, 5, 0, 18, 5, 0, 131072, 5, 0, 131074, 5, 0, 131076, 4, 0, 131078, 0, 0, 131080, 1, 0, 131082, 1, 0, 131084, 2, 0, 131086, 3, 0, 131088, 5, 0, 131090, 5, 0, 262144, 5, 0, 262146, 5, 0, 262148, 4, 0, 262150, 0, 0, 262152, 1, 0, 262154, 1, 0, 262156, 2, 0, 262158, 3, 0, 262160, 5, 0, 262162, 5, 0, 393216, 5, 0, 393218, 5, 0, 393220, 4, 0, 393222, 0, 0, 393224, 1, 0, 393226, 1, 0, 393228, 2, 0, 393230, 3, 0, 393232, 5, 0, 393234, 5, 0, 524288, 5, 0, 524290, 5, 0, 524292, 4, 0, 524294, 0, 0, 524296, 1, 0, 524298, 1, 0, 524300, 2, 0, 524302, 3, 0, 524304, 5, 0, 524306, 5, 0, 655360, 5, 0, 655362, 5, 0, 655364, 4, 0, 655366, 0, 0, 655368, 1, 0, 655370, 1, 0, 655372, 2, 0, 655374, 3, 0, 655376, 5, 0, 655378, 5, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Car" parent="." index="2" instance=ExtResource( 4 )]

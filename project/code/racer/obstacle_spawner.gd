@@ -27,7 +27,10 @@ func reset_spawn_time():
 	spawn_ready = default_spawn_distance + rand_range(-spawn_variation, spawn_variation)
 
 func spawn_random_object():
+	randomize()
 	var new_rock = OBSTACLES[0].instance()
-	new_rock.position.x = 500
-	new_rock.position.y = -1 * new_rock.get_node("Collision").shape.extents.y
+	var extents = new_rock.get_node("Collision").shape.extents
+	var bounds = game_state.visible_bounds()
+	new_rock.position.x = rand_range(bounds[0] + extents.x, bounds[1] - extents.x)
+	new_rock.position.y = -1 * extents.y
 	add_child(new_rock)

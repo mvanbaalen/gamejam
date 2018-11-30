@@ -5,7 +5,6 @@
 [ext_resource path="res://sound/shooter/laser_hi1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://code/shooter/bm2particle.gd" type="Script" id=4]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -51,7 +50,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Scale" ]
 
-[node name="ship" type="Area2D"]
+[node name="Ship" type="Area2D"]
 
 position = Vector2( 664.364, 641.942 )
 input_pickable = true

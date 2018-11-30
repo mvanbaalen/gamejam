@@ -12,6 +12,8 @@ var spread_active = false
 var double_active = false
 
 signal armor_changed
+signal shot_laser
+signal got_powerup
 
 onready var game_state = get_parent()
 
@@ -47,7 +49,8 @@ func shoot():
 	if spread_active:
 		create_laser(30, cannon_location - Vector2(8, 0))
 		create_laser(-30, cannon_location + Vector2(8, 0))
-		
+	
+	emit_signal("shot_laser")
 	$Sounds/Laser.play()
 	if speed_active: cooldown = fast_cooldown
 	else: cooldown = shot_cooldown
@@ -67,10 +70,12 @@ func set_armor(new_value):
 	if armor <= 0:
 		queue_free()
 		#TODO: Better transition to menu
-		get_tree().change_scene("res://scenes/menu.tscn")
+		game_state.update_results()
+		get_tree().change_scene("res://scenes/results.tscn")
 	
 func pickup(powerup):
 	if powerup == "speed" and not speed_active: speed_active = true
 	if powerup == "spread" and not spread_active: spread_active = true
 	if powerup == "double" and not double_active: double_active = true
-		
+	#TODO Score here?
+	emit_signal("got_powerup")

@@ -25,3 +25,9 @@ func _process(delta):
 	
 func obstacle_avoided():
 	score += 2
+	
+func visible_bounds():
+	var view_x_min = camera_object.position.x - (get_viewport().size.x / 2)
+	var view_x_max = (get_viewport().size.x / 2) + camera_object.position.x
+	return [view_x_min, view_x_max]
+	#TODO Return a rect if we want
