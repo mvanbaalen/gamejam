@@ -18,6 +18,9 @@ func _process(delta):
 		queue_free()
 		
 func set_armor(new_value):
+	# I didnt know where to put the sound fx. set_armor() might get called for other reasons than damage
+	var sound = game_state.get_node("Sounds/EnemyDamage")
+	sound.play()
 	armor = new_value
 	if armor <= 0: die()
 	
@@ -34,6 +37,8 @@ func die():
 	queue_free()
 
 func explode():
+	var sound = game_state.get_node("Sounds/EnemyDie")
+	sound.play()
 	var explosion = explosion_scene.instance()
 	explosion.position = self.position
 	explosion.emitting = true

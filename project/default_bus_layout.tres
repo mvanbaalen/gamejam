@@ -5,21 +5,7 @@
 resource_name = "Panner"
 pan = -1.0
 
-[sub_resource type="AudioEffectChorus" id=2]
-
-resource_name = "Chorus"
-voice_count = 1
-dry = 0.0
-wet = 1.0
-voice/1/delay_ms = 15.0
-voice/1/rate_hz = 0.1
-voice/1/depth_ms = 2.0
-voice/1/level_db = 0.0
-voice/1/cutoff_hz = 8000.0
-voice/1/pan = -0.5
-_sections_unfolded = [ "voice", "voice/1" ]
-
-[sub_resource type="AudioEffectDelay" id=3]
+[sub_resource type="AudioEffectDelay" id=2]
 
 resource_name = "Delay"
 dry = 0.5
@@ -37,6 +23,14 @@ feedback/level_db = -6.0
 feedback/lowpass = 16000.0
 _sections_unfolded = [ "Resource", "feedback", "tap1", "tap2" ]
 
+[sub_resource type="AudioEffectLowPassFilter" id=3]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 400.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
 [sub_resource type="AudioEffectPanner" id=4]
 
 resource_name = "Panner"
@@ -52,21 +46,7 @@ pan = 1.0
 resource_name = "Panner"
 pan = 1.0
 
-[sub_resource type="AudioEffectChorus" id=7]
-
-resource_name = "Chorus"
-voice_count = 1
-dry = 0.0
-wet = 1.0
-voice/1/delay_ms = 15.0
-voice/1/rate_hz = 0.1
-voice/1/depth_ms = 2.0
-voice/1/level_db = 0.0
-voice/1/cutoff_hz = 8000.0
-voice/1/pan = -0.5
-_sections_unfolded = [ "voice", "voice/1" ]
-
-[sub_resource type="AudioEffectDelay" id=8]
+[sub_resource type="AudioEffectDelay" id=7]
 
 resource_name = "Delay"
 dry = 1.0
@@ -83,6 +63,14 @@ feedback/delay_ms = 340.0
 feedback/level_db = -6.0
 feedback/lowpass = 16000.0
 _sections_unfolded = [ "feedback", "tap1", "tap2" ]
+
+[sub_resource type="AudioEffectLowPassFilter" id=8]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 400.0
+resonance = 0.5
+gain = 1.0
+db = 0
 
 [resource]
 

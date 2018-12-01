@@ -65,6 +65,8 @@ func take_damage():
 	if active_powerups.empty():
 		die()
 	else:
+		var sound = game_state.get_node("Sounds/ShipDamage")
+		sound.play()
 		var lost_powerup = active_powerups.pop_front()
 		emit_signal("took_damage", lost_powerup)
 		

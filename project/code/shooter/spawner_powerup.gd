@@ -5,7 +5,7 @@ const powerup = preload("res://scenes/shooter/powerup.tscn")
 const powerup_icons = [
 	preload("res://graphics/shooter/speed_powerup.png"),
 	preload("res://graphics/shooter/spread_powerup.png"),
-	preload("res://graphics/shooter/double_powerup.png")
+	preload("res://graphics/shooter/double_powerup_vector.png")
 ]
 
 const powerup_data = [

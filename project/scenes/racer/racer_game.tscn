@@ -31,7 +31,7 @@ extents = Vector2( 192, 384 )
 custom_solver_bias = 0.0
 extents = Vector2( 192, 384 )
 
-[node name="RacerGame" type="Node2D" index="0" groups=[
+[node name="RacerGame" type="Node2D" groups=[
 "racer_state",
 ]]
 
@@ -381,7 +381,7 @@ bus = "Master"
 [node name="Speedup1" type="AudioStreamPlayer" parent="Sounds" index="1"]
 
 stream = ExtResource( 13 )
-volume_db = -6.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -390,7 +390,7 @@ bus = "Master"
 [node name="Speedup2" type="AudioStreamPlayer" parent="Sounds" index="2"]
 
 stream = ExtResource( 14 )
-volume_db = -6.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -399,7 +399,7 @@ bus = "Master"
 [node name="Speedup3" type="AudioStreamPlayer" parent="Sounds" index="3"]
 
 stream = ExtResource( 15 )
-volume_db = -6.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
