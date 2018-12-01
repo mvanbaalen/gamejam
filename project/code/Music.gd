@@ -24,5 +24,5 @@ func _process(delta):
 	
 	AudioServer.set_bus_volume_db(right_clean_bus,0)#cs/100*vol_range-vol_range)
 	AudioServer.set_bus_volume_db(right_dirty_bus, -vol_range - AudioServer.get_bus_volume_db(right_clean_bus))
-	print(AudioServer.get_bus_volume_db(right_dirty_bus))
+	#print(AudioServer.get_bus_volume_db(right_dirty_bus))
 #	AudioServer.set_bus_volume_db(master_bus,(1-abs(350-$Player.position.y)/350)*20)

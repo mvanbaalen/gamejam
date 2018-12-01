@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://code/shooter/shooter_state.gd" type="Script" id=1]
 [ext_resource path="res://scenes/shooter/stars.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/shooter/ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/shooter/spawner_powerup.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/shooter/spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/shooter/enemies/spawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/shooter/hud.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sound/shooter/laser_low2.ogg" type="AudioStream" id=7]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
@@ -101,7 +102,9 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Resource", "Scale", "Trail" ]
 
-[node name="shooter_game" type="Node2D" index="0"]
+[node name="shooter_game" type="Node2D" index="0" groups=[
+"shooter_state",
+]]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -124,6 +127,9 @@ color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="stars" parent="." index="1" instance=ExtResource( 2 )]
+
+star_direction = Vector2( 0, 1 )
+star_amount_multiplier = 100
 
 [node name="Ship" parent="." index="2" instance=ExtResource( 3 )]
 
@@ -181,5 +187,16 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Visibility" ]
+
+[node name="Sounds" type="Node" parent="." index="8"]
+
+[node name="Laser" type="AudioStreamPlayer" parent="Sounds" index="0"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

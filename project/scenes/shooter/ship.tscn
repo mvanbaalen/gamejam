@@ -96,7 +96,9 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="Particles2D" type="Particles2D" parent="." index="4"]
+[node name="Effects" type="Node2D" parent="." index="4"]
+
+[node name="Particles2D" type="Particles2D" parent="Effects" index="0"]
 
 show_behind_parent = true
 position = Vector2( 0, 30 )

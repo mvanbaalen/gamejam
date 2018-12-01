@@ -2,10 +2,10 @@
 
 [ext_resource path="res://code/shooter/hud.gd" type="Script" id=1]
 [ext_resource path="res://code/shooter/lifetracker.gd" type="Script" id=2]
-[ext_resource path="res://graphics/shooter/life.png" type="Texture" id=3]
+[ext_resource path="res://default_theme.tres" type="Theme" id=3]
 [ext_resource path="res://code/shooter/score_tracker.gd" type="Script" id=4]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -20,8 +20,8 @@ anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -175.0
-margin_bottom = 40.0
+margin_left = -201.0
+margin_bottom = 59.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -30,23 +30,23 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="LifeContainer" type="GridContainer" parent="Organizer" index="0"]
+[node name="LifeContainer" type="HBoxContainer" parent="Organizer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 175.0
-margin_bottom = 26.0
+margin_right = 201.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-columns = 5
+alignment = 0
 script = ExtResource( 2 )
-_sections_unfolded = [ "Grow Direction", "Rect", "Transform" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Transform" ]
 
 [node name="Label" type="Label" parent="Organizer/LifeContainer" index="0"]
 
@@ -54,95 +54,20 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 6.0
-margin_right = 31.0
-margin_bottom = 20.0
+margin_right = 117.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Life: "
+theme = ExtResource( 3 )
+text = "Powerups:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="Point" type="TextureRect" parent="Organizer/LifeContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 35.0
-margin_right = 67.0
-margin_bottom = 26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Transform" ]
-
-[node name="Point2" type="TextureRect" parent="Organizer/LifeContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 71.0
-margin_right = 103.0
-margin_bottom = 26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Transform" ]
-
-[node name="Point3" type="TextureRect" parent="Organizer/LifeContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 107.0
-margin_right = 139.0
-margin_bottom = 26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Transform" ]
-
-[node name="Point4" type="TextureRect" parent="Organizer/LifeContainer" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 143.0
-margin_right = 175.0
-margin_bottom = 26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Theme", "custom_fonts" ]
 
 [node name="ScoreContainer" type="HBoxContainer" parent="Organizer" index="1"]
 
@@ -150,9 +75,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 30.0
-margin_right = 175.0
-margin_bottom = 44.0
+margin_top = 32.0
+margin_right = 201.0
+margin_bottom = 51.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -167,18 +92,20 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 43.0
-margin_bottom = 14.0
+margin_right = 63.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 3 )
 text = "Score: "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
 
 [node name="Score" type="Label" parent="Organizer/ScoreContainer" index="1"]
 
@@ -186,20 +113,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 47.0
-margin_right = 55.0
-margin_bottom = 14.0
+margin_left = 67.0
+margin_right = 76.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = ExtResource( 3 )
 text = "0"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 4 )
+_sections_unfolded = [ "Theme" ]
 
 

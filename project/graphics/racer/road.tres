@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=7 format=2]
 
-[ext_resource path="res://graphics/racer/road_left.png" type="Texture" id=1]
-[ext_resource path="res://graphics/racer/road_middle.png" type="Texture" id=2]
-[ext_resource path="res://graphics/racer/road_right.png" type="Texture" id=3]
-[ext_resource path="res://graphics/racer/dirt_left.png" type="Texture" id=4]
-[ext_resource path="res://graphics/racer/dirt_right.png" type="Texture" id=5]
-[ext_resource path="res://graphics/racer/grass.png" type="Texture" id=6]
+[ext_resource path="res://graphics/racer/road_left_radmax.png" type="Texture" id=1]
+[ext_resource path="res://graphics/racer/road_middle_radmax.png" type="Texture" id=2]
+[ext_resource path="res://graphics/racer/road_right_radmax.png" type="Texture" id=3]
+[ext_resource path="res://graphics/racer/dirt_left_radmax.png" type="Texture" id=4]
+[ext_resource path="res://graphics/racer/dirt_right_radmax.png" type="Texture" id=5]
+[ext_resource path="res://graphics/racer/grass_radmax.png" type="Texture" id=6]
 
 [resource]
 

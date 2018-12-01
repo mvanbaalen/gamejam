@@ -1,9 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://code/results_shooter.gd" type="Script" id=1]
 [ext_resource path="res://graphics/shooter/ship.png" type="Texture" id=2]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Label
+
+const TIPS = [
+	\"The Shooter must destroy the Swiper before it gets too low.\",
+	\"There is no way for the Shooter to remove the Blaster's lasers.\",
+	\"The Shooter gets points both by defeating enemies and getting Powerups.\",
+	\"The Shooter drops its oldest Powerup when it gets hit.\",
+	\"If the Shooter has no Powerups, it is destroyed in one hit.\",
+	\"The Shooter still gets points for defeating enemies by running into them.\",
+	\"The Racer increases its max speed by hitting boosts, up to 3 times.\",
+	\"The Racer gets points by traveling and by avoiding obstacles.\",
+	\"The Racer loses one speed boost when it gets hit.\",
+	\"The Racer's Speed boosts are not lost by slowing down.\",
+	\"The Shooter and Racer lose together.\"
+]
+
+func _ready():
+	text = TIPS[randi()%TIPS.size()]
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Button
+
+func _ready():
+	connect(\"pressed\", self, \"_on_button_pressed\")
+
+func _on_button_pressed():
+	results.clear_data()
+	get_tree().change_scene(\"res://scenes/menu.tscn\")
+"
+
+[node name="CanvasLayer" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -48,8 +82,11 @@ alignment = 2
 
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 284.0
+margin_right = 283.0
+margin_bottom = 284.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -154,6 +191,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+script = SubResource( 1 )
 
 [node name="Button" type="Button" parent="VBoxContainer2" index="2"]
 
@@ -178,5 +216,6 @@ group = null
 text = "Restart"
 flat = false
 align = 1
+script = SubResource( 2 )
 
 

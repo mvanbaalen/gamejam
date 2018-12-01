@@ -20,18 +20,15 @@ var spawn_timer = 0
 
 
 func _ready():
-	randomize()
 	spawn_timer = rand_range(timer_min, timer_max)
 
 func _process(delta):
 	spawn_timer -= delta
 	if spawn_timer <= 0:
 		create_powerup()
-		randomize()
 		spawn_timer = rand_range(timer_min, timer_max)
 
 func create_powerup():
-	randomize()
 	var created_powerup = powerup.instance()
 	var powerup_info = powerup_data[randi() % powerup_data.size()]
 	

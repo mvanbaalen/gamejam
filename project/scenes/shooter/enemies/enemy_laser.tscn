@@ -26,4 +26,9 @@ shape = SubResource( 1 )
 
 rect = Rect2( -7, -19, 14, 38 )
 
+[node name="Effects" parent="." index="3"]
+
+show_behind_parent = true
+_sections_unfolded = [ "Material", "Visibility" ]
+
 

@@ -1,17 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/shooter/enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://code/shooter/enemy_shooter.gd" type="Script" id=2]
-[ext_resource path="res://graphics/shooter/enemy_2_blue.png" type="Texture" id=3]
-[ext_resource path="res://sound/shooter/laser_low2.ogg" type="AudioStream" id=4]
-[ext_resource path="res://code/shooter/bm2particle.gd" type="Script" id=5]
+[ext_resource path="res://code/shooter/enemy_effects.gd" type="Script" id=1]
+[ext_resource path="res://graphics/shooter/enemy_2_blue.png" type="Texture" id=2]
+[ext_resource path="res://code/shooter/bm2particle.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 47, 42 )
-
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
@@ -48,9 +41,27 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Initial Velocity", "Scale" ]
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Particles2D
+#Set the trail texture to the parent
+
+func _ready():
+	self.texture = get_parent().get_parent().get_node(\"Sprite\").texture
+"
+
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends Particles2D
+#Set the wobble texture to the parent
+
+func _ready():
+	self.texture = get_parent().get_parent().get_node(\"Sprite\").texture"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -88,45 +99,18 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Scale" ]
+_sections_unfolded = [ "Damping", "Resource", "Scale", "Tangential Accel" ]
 
-[node name="enemy_shooter" instance=ExtResource( 1 )]
+[node name="Effects" type="Node2D" index="0"]
 
-position = Vector2( 352.337, 55.7753 )
-script = ExtResource( 2 )
-velocity = Vector2( 100, 100 )
-armor = 1
+show_behind_parent = true
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Sprite" parent="." index="0"]
-
-texture = ExtResource( 3 )
-
-[node name="Collision" parent="." index="1"]
-
-shape = SubResource( 1 )
-
-[node name="Cannon" type="Position2D" parent="." index="2"]
-
-position = Vector2( 0, 24 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sound" type="Node" parent="." index="3"]
-
-[node name="Laser" type="AudioStreamPlayer2D" parent="Sound" index="0"]
-
-stream = ExtResource( 4 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
-[node name="Blur" type="Particles2D" parent="." index="4"]
+[node name="Trail" type="Particles2D" parent="." index="0"]
 
 emitting = true
-amount = 10
+amount = 5
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0
@@ -136,16 +120,17 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
+local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+script = SubResource( 2 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility", "Z Index" ]
 
-[node name="Shadow" type="Particles2D" parent="." index="5"]
+[node name="Wobble" type="Particles2D" parent="." index="1"]
 
 show_behind_parent = true
 emitting = true
@@ -159,16 +144,17 @@ randomness = 0.0
 fixed_fps = 0
 fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = false
+local_coords = true
 draw_order = 0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Visibility" ]
+script = SubResource( 5 )
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
-[node name="Particles2D" type="Particles2D" parent="." index="6"]
+[node name="Particles2D" type="Particles2D" parent="." index="2"]
 
 show_behind_parent = true
 position = Vector2( 0, -40 )
@@ -185,12 +171,12 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-script = ExtResource( 5 )
-_sections_unfolded = [ "Process Material", "Transform", "Visibility" ]
+script = ExtResource( 3 )
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
 
 

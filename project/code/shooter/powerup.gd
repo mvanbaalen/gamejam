@@ -18,5 +18,8 @@ func _process(delta):
 	translate(velocity * delta)
 	
 	if position.y > get_viewport().size.y - $Collision.shape.extents.y:
+		var effects = $Effects
+		remove_child(effects)
+		effects.get_child(0).emitting = false
+		get_parent().add_child(effects)
 		queue_free()
-	pass

@@ -1,13 +1,12 @@
 extends Sprite
 
+export var direction = Vector2(0, 1)
 export var speed = 100
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	modulate = Color(1, 1, 1, rand_range(0, 1))
 
 func _process(delta):
-	translate(Vector2(0, speed*delta))
+	translate(Vector2(direction.x * speed * delta, direction.y * speed * delta))
 	if position.y > get_viewport().get_visible_rect().size.y+16:
 		queue_free()

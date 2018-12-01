@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/shooter/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://graphics/shooter/enemy_1_black.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 49, 42 )
+
+[node name="enemy_basic" index="0" instance=ExtResource( 1 )]
+
+base_point_value = 3
+velocity = Vector2( 0, 350 )
+
+[node name="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="Collision" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+

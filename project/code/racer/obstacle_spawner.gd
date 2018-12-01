@@ -1,7 +1,9 @@
 extends Node
 
 const OBSTACLES = [
-	preload("res://scenes/racer/rock.tscn")
+	preload("res://scenes/racer/rock.tscn"),
+	preload("res://scenes/racer/enemy_car.tscn"),
+	preload("res://scenes/racer/booster.tscn")
 ]
 
 export var default_spawn_distance = 500.0
@@ -13,7 +15,6 @@ onready var game_state = get_tree().get_nodes_in_group("racer_state")[0]
 var spawn_ready
 
 func _ready():
-	randomize()
 	reset_spawn_time()
 
 func _process(delta):
@@ -27,10 +28,9 @@ func reset_spawn_time():
 	spawn_ready = default_spawn_distance + rand_range(-spawn_variation, spawn_variation)
 
 func spawn_random_object():
-	randomize()
-	var new_rock = OBSTACLES[0].instance()
-	var extents = new_rock.get_node("Collision").shape.extents
+	var new_obstacle = OBSTACLES[randi() % OBSTACLES.size()].instance()
+	var extents = new_obstacle.get_node("Collision").shape.extents
 	var bounds = game_state.visible_bounds()
-	new_rock.position.x = rand_range(bounds[0] + extents.x, bounds[1] - extents.x)
-	new_rock.position.y = -1 * extents.y
-	add_child(new_rock)
+	new_obstacle.position.x = rand_range(bounds[0] + extents.x, bounds[1] - extents.x)
+	new_obstacle.position.y = -1 * extents.y
+	add_child(new_obstacle)
