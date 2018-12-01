@@ -1,0 +1,129 @@
+[gd_resource type="AudioBusLayout" load_steps=9 format=2]
+
+[sub_resource type="AudioEffectPanner" id=1]
+
+resource_name = "Panner"
+pan = -1.0
+
+[sub_resource type="AudioEffectDelay" id=2]
+
+resource_name = "Delay"
+dry = 0.5
+tap1/active = true
+tap1/delay_ms = 423.0
+tap1/level_db = -3.0
+tap1/pan = 0.0
+tap2/active = true
+tap2/delay_ms = 600.0
+tap2/level_db = -3.0
+tap2/pan = 0.0
+feedback/active = false
+feedback/delay_ms = 340.0
+feedback/level_db = -6.0
+feedback/lowpass = 16000.0
+_sections_unfolded = [ "Resource", "feedback", "tap1", "tap2" ]
+
+[sub_resource type="AudioEffectLowPassFilter" id=3]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 400.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectPanner" id=4]
+
+resource_name = "Panner"
+pan = -1.0
+
+[sub_resource type="AudioEffectPanner" id=5]
+
+resource_name = "Panner"
+pan = 1.0
+
+[sub_resource type="AudioEffectPanner" id=6]
+
+resource_name = "Panner"
+pan = 1.0
+
+[sub_resource type="AudioEffectDelay" id=7]
+
+resource_name = "Delay"
+dry = 1.0
+tap1/active = true
+tap1/delay_ms = 500.0
+tap1/level_db = -6.0
+tap1/pan = 0.0
+tap2/active = true
+tap2/delay_ms = 550.0
+tap2/level_db = -6.0
+tap2/pan = 0.0
+feedback/active = false
+feedback/delay_ms = 340.0
+feedback/level_db = -6.0
+feedback/lowpass = 16000.0
+_sections_unfolded = [ "feedback", "tap1", "tap2" ]
+
+[sub_resource type="AudioEffectLowPassFilter" id=8]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 400.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[resource]
+
+bus/0/name = "Master"
+bus/0/solo = false
+bus/0/mute = false
+bus/0/bypass_fx = false
+bus/0/volume_db = 0.0
+bus/0/send = ""
+bus/1/name = "Left Dirty"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -80.0
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource( 2 )
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource( 3 )
+bus/1/effect/2/enabled = true
+bus/2/name = "Left"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -79.1
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 4 )
+bus/2/effect/0/enabled = true
+bus/3/name = "Center"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 2.6
+bus/3/send = "Master"
+bus/4/name = "Right"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -80.0
+bus/4/send = "Master"
+bus/4/effect/0/effect = SubResource( 5 )
+bus/4/effect/0/enabled = true
+bus/5/name = "Right Dirty"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -80.0
+bus/5/send = "Master"
+bus/5/effect/0/effect = SubResource( 6 )
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource( 7 )
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource( 8 )
+bus/5/effect/2/enabled = true
+

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/shooter/star1.png" type="Texture" id=1]
+[ext_resource path="res://code/shooter/star.gd" type="Script" id=2]
+
+[node name="Star" type="Sprite"]
+
+modulate = Color( 1, 1, 1, 0.501961 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+speed = 100
+
+

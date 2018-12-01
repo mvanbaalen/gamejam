@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ship_crash1.wav-cd2153de5cc046d659b4d769569aa739.sample"
+
+[deps]
+
+source_file="res://sound/shooter/ship_crash1.wav"
+dest_files=[ "res://.import/ship_crash1.wav-cd2153de5cc046d659b4d769569aa739.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

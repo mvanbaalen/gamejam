@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/shooter/laser.tscn" type="PackedScene" id=1]
+[ext_resource path="res://code/shooter/player_laser.gd" type="Script" id=2]
+[ext_resource path="res://graphics/shooter/laser.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 19 )
+
+[node name="Player_Laser" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+velocity = Vector2( 0, -500 )
+
+[node name="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Collision" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Visibility" parent="." index="2"]
+
+rect = Rect2( -4, -20, 8, 40 )
+
+[node name="Effects" parent="." index="3"]
+
+show_behind_parent = true
+
+

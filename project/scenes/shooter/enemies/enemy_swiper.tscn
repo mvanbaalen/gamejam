@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/shooter/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://code/shooter/enemy_swiper.gd" type="Script" id=2]
+[ext_resource path="res://graphics/shooter/ufo_green.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 44, 46 )
+
+[node name="Swiper" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+velocity = Vector2( 200, 0 )
+armor = 1.5
+
+[node name="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="Collision" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+

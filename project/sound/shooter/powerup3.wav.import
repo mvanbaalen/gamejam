@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/powerup3.wav-a6f3da6d1f33a0ff3fe0c595f23ef2ce.sample"
+
+[deps]
+
+source_file="res://sound/shooter/powerup3.wav"
+dest_files=[ "res://.import/powerup3.wav-a6f3da6d1f33a0ff3fe0c595f23ef2ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,232 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://code/shooter/shooter_state.gd" type="Script" id=1]
+[ext_resource path="res://scenes/shooter/stars.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shooter/ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/shooter/spawner_powerup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/shooter/enemies/spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/shooter/hud.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sound/shooter/laser_low2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sound/shooter/damage2.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/shooter/damage1.wav" type="AudioStream" id=9]
+[ext_resource path="res://sound/racer/car_crash2.wav" type="AudioStream" id=10]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 640, 350, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 20, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angular_velocity = 100.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 3.0
+scale_random = 1.0
+color = Color( 0.978638, 1, 0.726563, 1 )
+hue_variation = 1.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Color", "Emission Shape", "Hue Variation", "Initial Velocity", "Linear Accel", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.0020895, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+flags = 4
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 10
+trail_size_modifier = SubResource( 3 )
+emission_shape = 2
+emission_box_extents = Vector3( 640, 350, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 1.0
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 16.0
+scale_random = 0.0
+color = Color( 0.959564, 1, 0.792969, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Initial Velocity", "Resource", "Scale", "Trail" ]
+
+[node name="shooter_game" type="Node2D" groups=[
+"shooter_state",
+]]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1282.0
+margin_bottom = 724.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="stars" parent="." index="1" instance=ExtResource( 2 )]
+
+star_direction = Vector2( 0, 1 )
+star_amount_multiplier = 100
+
+[node name="Ship" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 173.281, 645.43 )
+z_index = 1
+
+[node name="spawner_powerup" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="spawner" parent="." index="4" instance=ExtResource( 5 )]
+
+[node name="Particles2D" type="Particles2D" parent="." index="5"]
+
+position = Vector2( 640, 350 )
+emitting = true
+amount = 50
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Visibility" ]
+
+[node name="Particles2D2" type="Particles2D" parent="." index="6"]
+
+position = Vector2( 640, 350 )
+emitting = true
+amount = 10
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Visibility" ]
+
+[node name="HUD" parent="." index="7" instance=ExtResource( 6 )]
+
+[node name="Sounds" type="Node" parent="." index="8"]
+
+[node name="Laser" type="AudioStreamPlayer" parent="Sounds" index="0"]
+
+stream = ExtResource( 7 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ShipDamage" type="AudioStreamPlayer" parent="Sounds" index="1"]
+
+stream = ExtResource( 8 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="EnemyDamage" type="AudioStreamPlayer" parent="Sounds" index="2"]
+
+stream = ExtResource( 9 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="EnemyDie" type="AudioStreamPlayer" parent="Sounds" index="3"]
+
+stream = ExtResource( 10 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+
