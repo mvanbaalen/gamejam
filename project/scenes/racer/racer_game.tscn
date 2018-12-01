@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://code/racer/racer_state.gd" type="Script" id=1]
 [ext_resource path="res://code/racer/map.gd" type="Script" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=9]
 [ext_resource path="res://code/racer/score_tracker.gd" type="Script" id=10]
 [ext_resource path="res://code/racer/obstacle_spawner.gd" type="Script" id=11]
+[ext_resource path="res://sound/shooter/ship_crash1.wav" type="AudioStream" id=12]
+[ext_resource path="res://sound/racer/speedup1.wav" type="AudioStream" id=13]
+[ext_resource path="res://sound/racer/speedup2.wav" type="AudioStream" id=14]
+[ext_resource path="res://sound/racer/speedup3.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -367,8 +371,35 @@ default_spawn_increase = 0.1
 
 [node name="Crash1" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
-stream = null
-volume_db = 0.0
+stream = ExtResource( 12 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Speedup1" type="AudioStreamPlayer" parent="Sounds" index="1"]
+
+stream = ExtResource( 13 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Speedup2" type="AudioStreamPlayer" parent="Sounds" index="2"]
+
+stream = ExtResource( 14 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Speedup3" type="AudioStreamPlayer" parent="Sounds" index="3"]
+
+stream = ExtResource( 15 )
+volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://code/Music.gd" type="Script" id=1]
+[ext_resource path="res://music/Parallel_electro.ogg" type="AudioStream" id=2]
+[ext_resource path="res://music/Parallel_menu.ogg" type="AudioStream" id=3]
+[ext_resource path="res://music/Parallel_rock.ogg" type="AudioStream" id=4]
+
+[node name="Music" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="LeftDirty" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 2 )
+volume_db = -18.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Left Dirty"
+
+[node name="Left" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 2 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Left"
+
+[node name="Center" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Center"
+
+[node name="Right" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Right"
+
+[node name="RightDirty" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 4 )
+volume_db = -18.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Right Dirty"
+
+

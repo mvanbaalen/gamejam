@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Parallel_menu.ogg-641284d0a2d7b455c2aaf68ad13d35c4.oggstr"
+
+[deps]
+
+source_file="res://music/Parallel_menu.ogg"
+dest_files=[ "res://.import/Parallel_menu.ogg-641284d0a2d7b455c2aaf68ad13d35c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

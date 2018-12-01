@@ -79,6 +79,16 @@ func hit_obstacle():
 		update_boost_speed()
 	
 func hit_boost():
+	randomize()
+	var sfx = rand_range(0,2)
+	var sound = game_state.get_node("Sounds/Speedup1")
+	if sfx < 1:
+		sound = game_state.get_node("Sounds/Speedup1")
+	elif sfx < 2:
+		sound = game_state.get_node("Sounds/Speedup2")
+	else:
+		sound = game_state.get_node("Sounds/Speedup3")
+	sound.play()
 	if boosts < 3: boosts += 1
 	update_boost_speed()
 	game_state.add_score(10)

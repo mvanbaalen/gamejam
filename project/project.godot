@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 results="*res://code/results.gd"
 BALANCE="*res://code/game_balance.gd"
+Music="*res://music/Music.tscn"
 
 [display]
 

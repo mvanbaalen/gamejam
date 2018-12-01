@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/shooter/shooter_game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/racer/racer_game.tscn" type="PackedScene" id=2]
-[ext_resource path="res://code/Music.gd" type="Script" id=3]
-[ext_resource path="res://music/Parallel_electro.ogg" type="AudioStream" id=4]
-[ext_resource path="res://music/Parallel_rock.ogg" type="AudioStream" id=5]
-
 
 [node name="Game" type="Node"]
 
@@ -116,54 +112,5 @@ shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
 
 [node name="racer_game" parent="Viewports/RacerContainer/RacerViewport" index="0" instance=ExtResource( 2 )]
-
-[node name="Music" type="Node" parent="." index="1"]
-
-script = ExtResource( 3 )
-
-[node name="LeftDirty" type="AudioStreamPlayer" parent="Music" index="0"]
-
-stream = ExtResource( 4 )
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Left Dirty"
-
-[node name="Left" type="AudioStreamPlayer" parent="Music" index="1"]
-
-stream = ExtResource( 4 )
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Left"
-
-[node name="Center" type="AudioStreamPlayer" parent="Music" index="2"]
-
-stream = null
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Center"
-
-[node name="Right" type="AudioStreamPlayer" parent="Music" index="3"]
-
-stream = ExtResource( 5 )
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Right"
-
-[node name="RightDirty" type="AudioStreamPlayer" parent="Music" index="4"]
-
-stream = ExtResource( 5 )
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Right Dirty"
 
 
