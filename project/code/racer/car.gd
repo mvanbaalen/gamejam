@@ -44,4 +44,6 @@ func set_speed(new_value):
 	emit_signal("speed_changed", vert_speed)
 	
 func hit_obstacle():
+	var sound = game_state.get_node("Sounds/Crash1")
+	sound.play()
 	set_speed(0)

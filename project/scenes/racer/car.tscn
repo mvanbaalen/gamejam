@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 35.8444, 65.6521 )
 
-[node name="car" type="Area2D"]
+[node name="car" type="Area2D" index="0"]
 
 position = Vector2( 1031.05, 631.608 )
 input_pickable = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://code/racer/racer_state.gd" type="Script" id=1]
 [ext_resource path="res://code/racer/map.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=6]
 [ext_resource path="res://code/racer/score_tracker.gd" type="Script" id=7]
 [ext_resource path="res://code/racer/obstacle_spawner.gd" type="Script" id=8]
+[ext_resource path="res://sound/racer/car_crash1.wav" type="AudioStream" id=9]
 
 [node name="RacerGame" type="Node2D" groups=[
 "racer_state",
@@ -225,5 +226,16 @@ script = ExtResource( 8 )
 default_spawn_distance = 500.0
 default_spawn_variation = 0.2
 default_spawn_increase = 0.1
+
+[node name="Sounds" type="Node" parent="." index="6"]
+
+[node name="Crash1" type="AudioStreamPlayer" parent="Sounds" index="0"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
