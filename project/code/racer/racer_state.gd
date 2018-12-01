@@ -22,12 +22,14 @@ func get_score():
 	
 func _process(delta):
 	distance_traveled += car_speed()*delta
+	results.racer_data["Distance"] = int(distance_traveled)
 	
 func obstacle_avoided():
 	add_score(2)
 	
 func add_score(value):
 	score += value
+	results.racer_data["Score"] = get_score()
 	
 func visible_bounds():
 	var view_x_min = camera_object.position.x - (get_viewport().size.x / 2)

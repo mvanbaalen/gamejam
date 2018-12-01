@@ -12,6 +12,7 @@ extents = Vector2( 49, 42 )
 
 base_point_value = 3
 velocity = Vector2( 0, 350 )
+armor = 1.5
 
 [node name="Sprite" parent="." index="0"]
 

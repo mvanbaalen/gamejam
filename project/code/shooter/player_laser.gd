@@ -5,6 +5,6 @@ func _ready():
 
 func _on_area_entered(other):
 	if other.is_in_group("enemy"):
-		other.armor -= 1
+		other.take_hit()
 		create_flare()
 		queue_free()

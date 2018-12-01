@@ -105,7 +105,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Resource", "Scale", "Trail" ]
 
-[node name="shooter_game" type="Node2D" index="0" groups=[
+[node name="shooter_game" type="Node2D" groups=[
 "shooter_state",
 ]]
 
@@ -143,9 +143,7 @@ z_index = 1
 
 [node name="spawner" parent="." index="4" instance=ExtResource( 5 )]
 
-[node name="HUD" parent="." index="5" instance=ExtResource( 6 )]
-
-[node name="Particles2D" type="Particles2D" parent="." index="6"]
+[node name="Particles2D" type="Particles2D" parent="." index="5"]
 
 position = Vector2( 640, 350 )
 emitting = true
@@ -168,7 +166,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Visibility" ]
 
-[node name="Particles2D2" type="Particles2D" parent="." index="7"]
+[node name="Particles2D2" type="Particles2D" parent="." index="6"]
 
 position = Vector2( 640, 350 )
 emitting = true
@@ -190,6 +188,8 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Visibility" ]
+
+[node name="HUD" parent="." index="7" instance=ExtResource( 6 )]
 
 [node name="Sounds" type="Node" parent="." index="8"]
 

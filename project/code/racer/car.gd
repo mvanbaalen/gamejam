@@ -16,6 +16,7 @@ var on_grass = false
 onready var game_state = get_tree().get_nodes_in_group("racer_state")[0]
 
 signal speed_changed
+signal updated_boosts
 
 func _ready():
 	set_process_input(true)
@@ -100,6 +101,7 @@ func update_boost_speed():
 	if boosts == 1:max_speed = 120
 	if boosts == 2:max_speed = 150
 	if boosts == 3:max_speed = 200
+	emit_signal("updated_boosts", boosts)
 	
 func set_on_road():
 	on_road = true

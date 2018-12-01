@@ -1,20 +1,24 @@
 [gd_scene load_steps=19 format=2]
 
+
 [ext_resource path="res://code/racer/racer_state.gd" type="Script" id=1]
 [ext_resource path="res://code/racer/map.gd" type="Script" id=2]
 [ext_resource path="res://graphics/racer/road.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/racer/road.gd" type="Script" id=4]
 [ext_resource path="res://code/racer/grass.gd" type="Script" id=5]
 [ext_resource path="res://scenes/racer/car.tscn" type="PackedScene" id=6]
-[ext_resource path="res://code/racer/HUD.gd" type="Script" id=7]
-[ext_resource path="res://default_theme.tres" type="Theme" id=8]
-[ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=9]
+[ext_resource path="res://code/racer/obstacle_spawner.gd" type="Script" id=7]
+[ext_resource path="res://code/racer/HUD.gd" type="Script" id=8]
+[ext_resource path="res://default_theme.tres" type="Theme" id=9]
 [ext_resource path="res://code/racer/score_tracker.gd" type="Script" id=10]
 [ext_resource path="res://code/racer/obstacle_spawner.gd" type="Script" id=11]
 [ext_resource path="res://sound/shooter/ship_crash1.wav" type="AudioStream" id=12]
 [ext_resource path="res://sound/racer/speedup1.wav" type="AudioStream" id=13]
 [ext_resource path="res://sound/racer/speedup2.wav" type="AudioStream" id=14]
 [ext_resource path="res://sound/racer/speedup3.wav" type="AudioStream" id=15]
+[ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=16]
+[ext_resource path="res://code/racer/boost_tracker.gd" type="Script" id=17]
+[ext_resource path="res://scenes/racer/hud/boost.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -59,7 +63,6 @@ __meta__ = {
 
 [node name="Map" type="Node" parent="." index="1"]
 
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="Road1" type="TileMap" parent="Map" index="0"]
@@ -218,119 +221,7 @@ position = Vector2( 633.161, 638.324 )
 z_index = 1
 _sections_unfolded = [ "Z Index" ]
 
-[node name="HUD" type="CanvasLayer" parent="." index="3"]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-script = ExtResource( 7 )
-
-[node name="Grid" type="GridContainer" parent="HUD" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-theme = ExtResource( 8 )
-columns = 2
-_sections_unfolded = [ "Theme" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="HUD/Grid" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 63.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Speed:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Speed" type="Label" parent="HUD/Grid" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 67.0
-margin_right = 76.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 9 )
-
-[node name="Label2" type="Label" parent="HUD/Grid" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 23.0
-margin_right = 63.0
-margin_bottom = 42.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Score: "
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Score" type="Label" parent="HUD/Grid" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 67.0
-margin_top = 23.0
-margin_right = 76.0
-margin_bottom = 42.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script = ExtResource( 10 )
-
-[node name="Cam" type="Camera2D" parent="." index="4"]
+[node name="Cam" type="Camera2D" parent="." index="3"]
 
 position = Vector2( 640, 360 )
 anchor_mode = 1
@@ -360,12 +251,180 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ObstacleSpawner" type="Node" parent="." index="5"]
+[node name="ObstacleSpawner" type="Node" parent="." index="4"]
 
-script = ExtResource( 11 )
+script = ExtResource( 7 )
 default_spawn_distance = 500.0
 default_spawn_variation = 0.2
 default_spawn_increase = 0.1
+
+[node name="HUD" type="CanvasLayer" parent="." index="5"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="HUD" index="0"]
+
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 107.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material", "Visibility", "custom_styles" ]
+
+[node name="Grid" type="GridContainer" parent="HUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 249.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 9 )
+columns = 2
+_sections_unfolded = [ "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label2" type="Label" parent="HUD/Grid" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 63.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Score: "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Score" type="Label" parent="HUD/Grid" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 67.0
+margin_right = 94.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="HUD/Grid" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 23.0
+margin_right = 63.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Speed:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Speed" type="Label" parent="HUD/Grid" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 67.0
+margin_top = 23.0
+margin_right = 94.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "200"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 16 )
+
+[node name="Boosts" type="Control" parent="HUD/Grid" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 46.0
+margin_right = 63.0
+margin_bottom = 126.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+script = ExtResource( 17 )
+_sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Boost1" parent="HUD/Grid/Boosts" index="0" instance=ExtResource( 18 )]
+
+visible = false
+_sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "Visibility" ]
+
+[node name="Boost2" parent="HUD/Grid/Boosts" index="1" instance=ExtResource( 18 )]
+
+visible = false
+margin_top = 24.0
+margin_bottom = 123.0
+
+[node name="Boost3" parent="HUD/Grid/Boosts" index="2" instance=ExtResource( 18 )]
+
+visible = false
+margin_top = 48.0
+margin_bottom = 147.0
 
 [node name="Sounds" type="Node" parent="." index="6"]
 
