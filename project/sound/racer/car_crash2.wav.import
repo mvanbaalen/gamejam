@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/car_crash2.wav-20373f72d098b34ff1f438783a796f98.sample"
+
+[deps]
+
+source_file="res://sound/racer/car_crash2.wav"
+dest_files=[ "res://.import/car_crash2.wav-20373f72d098b34ff1f438783a796f98.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

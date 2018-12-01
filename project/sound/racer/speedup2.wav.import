@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/speedup2.wav-017c150dd934d9c52cf16f19a2942797.sample"
+
+[deps]
+
+source_file="res://sound/racer/speedup2.wav"
+dest_files=[ "res://.import/speedup2.wav-017c150dd934d9c52cf16f19a2942797.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
