@@ -1,5 +1,4 @@
-[gd_scene load_steps=19 format=2]
-
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://code/racer/racer_state.gd" type="Script" id=1]
 [ext_resource path="res://code/racer/map.gd" type="Script" id=2]
@@ -11,14 +10,13 @@
 [ext_resource path="res://code/racer/HUD.gd" type="Script" id=8]
 [ext_resource path="res://default_theme.tres" type="Theme" id=9]
 [ext_resource path="res://code/racer/score_tracker.gd" type="Script" id=10]
-[ext_resource path="res://code/racer/obstacle_spawner.gd" type="Script" id=11]
-[ext_resource path="res://sound/shooter/ship_crash1.wav" type="AudioStream" id=12]
-[ext_resource path="res://sound/racer/speedup1.wav" type="AudioStream" id=13]
-[ext_resource path="res://sound/racer/speedup2.wav" type="AudioStream" id=14]
-[ext_resource path="res://sound/racer/speedup3.wav" type="AudioStream" id=15]
-[ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=16]
-[ext_resource path="res://code/racer/boost_tracker.gd" type="Script" id=17]
-[ext_resource path="res://scenes/racer/hud/boost.tscn" type="PackedScene" id=18]
+[ext_resource path="res://code/racer/speed_tracker.gd" type="Script" id=11]
+[ext_resource path="res://code/racer/boost_tracker.gd" type="Script" id=12]
+[ext_resource path="res://scenes/racer/hud/boost.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sound/shooter/ship_crash1.wav" type="AudioStream" id=14]
+[ext_resource path="res://sound/racer/speedup1.wav" type="AudioStream" id=15]
+[ext_resource path="res://sound/racer/speedup2.wav" type="AudioStream" id=16]
+[ext_resource path="res://sound/racer/speedup3.wav" type="AudioStream" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,7 +33,7 @@ extents = Vector2( 192, 384 )
 custom_solver_bias = 0.0
 extents = Vector2( 192, 384 )
 
-[node name="RacerGame" type="Node2D" groups=[
+[node name="RacerGame" type="Node2D" index="0" groups=[
 "racer_state",
 ]]
 
@@ -256,11 +254,9 @@ __meta__ = {
 script = ExtResource( 7 )
 default_spawn_distance = 500.0
 default_spawn_variation = 0.2
-default_spawn_increase = 0.1
 
 [node name="HUD" type="CanvasLayer" parent="." index="5"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -275,8 +271,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 107.0
-margin_bottom = 128.0
+margin_right = 136.0
+margin_bottom = 142.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -312,8 +308,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 63.0
-margin_bottom = 19.0
+margin_right = 91.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -331,9 +327,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 67.0
-margin_right = 94.0
-margin_bottom = 19.0
+margin_left = 95.0
+margin_right = 134.0
+margin_bottom = 28.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -352,9 +348,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 23.0
-margin_right = 63.0
-margin_bottom = 42.0
+margin_top = 32.0
+margin_right = 91.0
+margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -372,10 +368,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 67.0
-margin_top = 23.0
-margin_right = 94.0
-margin_bottom = 42.0
+margin_left = 95.0
+margin_top = 32.0
+margin_right = 134.0
+margin_bottom = 60.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -386,7 +382,7 @@ text = "200"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 16 )
+script = ExtResource( 11 )
 
 [node name="Boosts" type="Control" parent="HUD/Grid" index="4"]
 
@@ -394,8 +390,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 46.0
-margin_right = 63.0
+margin_top = 64.0
+margin_right = 91.0
 margin_bottom = 126.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -403,24 +399,24 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 3
-script = ExtResource( 17 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Size Flags" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Boost1" parent="HUD/Grid/Boosts" index="0" instance=ExtResource( 18 )]
+[node name="Boost1" parent="HUD/Grid/Boosts" index="0" instance=ExtResource( 13 )]
 
 visible = false
 _sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "Visibility" ]
 
-[node name="Boost2" parent="HUD/Grid/Boosts" index="1" instance=ExtResource( 18 )]
+[node name="Boost2" parent="HUD/Grid/Boosts" index="1" instance=ExtResource( 13 )]
 
 visible = false
 margin_top = 24.0
 margin_bottom = 123.0
 
-[node name="Boost3" parent="HUD/Grid/Boosts" index="2" instance=ExtResource( 18 )]
+[node name="Boost3" parent="HUD/Grid/Boosts" index="2" instance=ExtResource( 13 )]
 
 visible = false
 margin_top = 48.0
@@ -428,9 +424,11 @@ margin_bottom = 147.0
 
 [node name="Sounds" type="Node" parent="." index="6"]
 
+editor/display_folded = true
+
 [node name="Crash1" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
@@ -439,7 +437,7 @@ bus = "Master"
 
 [node name="Speedup1" type="AudioStreamPlayer" parent="Sounds" index="1"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 15 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
@@ -448,7 +446,7 @@ bus = "Master"
 
 [node name="Speedup2" type="AudioStreamPlayer" parent="Sounds" index="2"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 16 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
@@ -457,7 +455,7 @@ bus = "Master"
 
 [node name="Speedup3" type="AudioStreamPlayer" parent="Sounds" index="3"]
 
-stream = ExtResource( 15 )
+stream = ExtResource( 17 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false

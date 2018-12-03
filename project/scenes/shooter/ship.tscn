@@ -83,12 +83,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sounds" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Laser" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 max_distance = 2000.0

@@ -52,7 +52,7 @@ func _ready():
 	self.texture = get_parent().get_parent().get_node(\"Sprite\").texture
 "
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=3]
 
 script/source = "extends Particles2D
 #Set the wobble texture to the parent
@@ -101,7 +101,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Damping", "Resource", "Scale", "Tangential Accel" ]
 
-[node name="Effects" type="Node2D" index="0"]
+[node name="Effects" type="Node2D"]
 
 show_behind_parent = true
 script = ExtResource( 1 )
@@ -151,7 +151,7 @@ texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-script = SubResource( 5 )
+script = SubResource( 3 )
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
 [node name="Particles2D" type="Particles2D" parent="." index="2"]

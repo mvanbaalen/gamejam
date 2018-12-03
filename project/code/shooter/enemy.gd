@@ -51,10 +51,10 @@ func explode():
 	get_parent().add_child(explosion)
 	
 func save_effects():
-	var effects = $Effects
-	if effects != null:
+	if has_node("Effects"):
 		# This gets called twice when enemies die in two ways at once which sometimes happens
 		# I'd like to fix that in the future of course
+		var effects = $Effects
 		for effect in effects.get_children():
 			effect.emitting = false
 			#This stupid effect WILL NOT STOP EMITTING

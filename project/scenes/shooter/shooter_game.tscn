@@ -105,7 +105,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Initial Velocity", "Resource", "Scale", "Trail" ]
 
-[node name="shooter_game" type="Node2D" groups=[
+[node name="shooter_game" type="Node2D" index="0" groups=[
 "shooter_state",
 ]]
 

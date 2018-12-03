@@ -21,6 +21,11 @@ func _on_shot_laser():
 	shots_fired += 1
 	results.shooter_data["Shots"] = shots_fired
 	
-func _on_got_powerup():
+func _on_got_powerup(powerup_name):
 	powerups += 1
 	results.shooter_data["Powerups"] = powerups
+	var display_name = powerup_name.capitalize() + " Powerups"
+	if results.shooter_data.has(display_name):
+		results.shooter_data[display_name] += 1
+	else:
+		results.shooter_data[display_name] = 1

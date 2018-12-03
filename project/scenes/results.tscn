@@ -35,6 +35,7 @@ script/source = "extends Button
 
 func _ready():
 	connect(\"pressed\", self, \"_on_button_pressed\")
+	grab_focus()
 
 func _on_button_pressed():
 	results.clear_data()
